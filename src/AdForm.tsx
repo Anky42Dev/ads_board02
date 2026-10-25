@@ -18,7 +18,7 @@ export default function AdForm({ onCreated }: { onCreated: () => void }) {
     form.append("title", title);
     form.append("description", description);
     form.append("price", price);
-    if (image) form.append("image", image);
+    form.append("image", image!);
 
     try {
       await createAd(form);
@@ -63,6 +63,7 @@ export default function AdForm({ onCreated }: { onCreated: () => void }) {
       <input
         type="file"
         accept="image/*"
+        required
         onChange={(e) => setImage(e.target.files?.[0] ?? null)}
       />
       {error && <div className="error">{error}</div>}
