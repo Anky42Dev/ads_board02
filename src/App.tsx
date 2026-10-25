@@ -25,11 +25,9 @@ export default function App() {
   }, [load]);
 
   return (
-    <div className="page">
-      <header>
-        <h1>Доска объявлений</h1>
-      </header>
-      <main>
+    <div className="board">
+      <h1 className="visually-hidden">Доска объявлений</h1>
+      <main className="board-inner">
         <AdForm onCreated={load} />
         <section>
           {loading && <p className="hint">Загрузка…</p>}
