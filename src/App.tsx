@@ -28,7 +28,6 @@ export default function App() {
     <div className="page">
       <header>
         <h1>Доска объявлений</h1>
-        <p>Продай ненужное, найди нужное</p>
       </header>
       <main>
         <AdForm onCreated={load} />
