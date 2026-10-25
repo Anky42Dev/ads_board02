@@ -25,22 +25,20 @@ export default function App() {
   }, [load]);
 
   return (
-    <div className="board">
-      <h1 className="visually-hidden">Доска объявлений</h1>
-      <main className="board-inner">
-        <AdForm onCreated={load} />
-        <section>
-          {loading && <p className="hint">Загрузка…</p>}
-          {error && <p className="error">{error}</p>}
-          {!loading && !error && ads.length === 0 && (
-            <p className="hint">Пока объявлений нет</p>
-          )}
-          <div className="grid">
-            {ads.map((ad) => (
-              <AdCard key={ad.id} ad={ad} />
-            ))}
-          </div>
-        </section>
+    <div className="layout">
+      <AdForm onCreated={load} />
+      <main className="board">
+        <h1>Доска объявлений</h1>
+        {loading && <p className="hint">Загрузка…</p>}
+        {error && <p className="error">{error}</p>}
+        {!loading && !error && ads.length === 0 && (
+          <p className="hint">Пока объявлений нет</p>
+        )}
+        <div className="grid">
+          {ads.map((ad) => (
+            <AdCard key={ad.id} ad={ad} />
+          ))}
+        </div>
       </main>
     </div>
   );
